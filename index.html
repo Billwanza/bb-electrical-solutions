@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BB Electrical Solutions – Modbury</title>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Inline favicon – no external files needed -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23FFD000'/%3E%3Cpolygon points='58,8 28,55 48,55 42,92 72,45 52,45' fill='%230D0D0D'/%3E%3C/svg%3E" />
+  <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23FFD000'/%3E%3Cpolygon points='58,8 28,55 48,55 42,92 72,45 52,45' fill='%230D0D0D'/%3E%3C/svg%3E" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,23 +77,10 @@
       position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255,208,0,0.06) 0%, transparent 70%),
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 80px,
-          rgba(255,255,255,0.015) 80px,
-          rgba(255,255,255,0.015) 81px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 80px,
-          rgba(255,255,255,0.015) 80px,
-          rgba(255,255,255,0.015) 81px
-        );
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px),
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
     }
 
-    /* animated lightning bolt background */
     .hero-bolt {
       position: absolute; right: 6%; top: 50%;
       transform: translateY(-50%);
@@ -237,9 +222,7 @@
     .service-card:hover { background: var(--mid); }
     .service-card:hover::after { transform: scaleX(1); }
 
-    .service-icon {
-      font-size: 2rem; margin-bottom: 1.2rem; display: block;
-    }
+    .service-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
     .service-card h3 {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.4rem; font-weight: 700;
@@ -321,9 +304,7 @@
     .contact-info > p { color: var(--light-grey); line-height: 1.7; margin-bottom: 2.5rem; }
 
     .contact-details { display: flex; flex-direction: column; gap: 1.2rem; }
-    .contact-item {
-      display: flex; align-items: center; gap: 1rem;
-    }
+    .contact-item { display: flex; align-items: center; gap: 1rem; }
     .contact-item-icon {
       background: rgba(255,208,0,0.1); color: var(--yellow);
       width: 44px; height: 44px; border-radius: 2px;
@@ -586,14 +567,14 @@
             <div class="contact-item-icon">📞</div>
             <div class="contact-item-text">
               <strong>Phone</strong>
-              <a href="tel:+61 412 495 864">+61 412 495 864</a>
+              <a href="tel:0400000000">0400 000 000</a>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-item-icon">✉️</div>
             <div class="contact-item-text">
               <strong>Email</strong>
-              <a href="brett@bbelec.com.au">brett@bbelec.com.au</a>
+              <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355c5b535a755757505950561b565a581b5440">[email&#160;protected]</a></span>
             </div>
           </div>
           <div class="contact-item">
@@ -645,7 +626,6 @@
             <textarea name="message" placeholder="Describe the work needed, your address, and any other details..." required></textarea>
           </div>
           <input type="hidden" name="_subject" value="New Quote Request – BB Electrical Solutions" />
-          <input type="hidden" name="_next" value="https://bbelec.com.au/thankyou" />
           <button type="submit" class="form-submit">⚡ Send My Request</button>
         </form>
       </div>
@@ -663,30 +643,12 @@
     </div>
   </footer>
 
-  <script>
-    // Scroll reveal - make all reveal elements visible on scroll
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const reveals = document.querySelectorAll('.reveal');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     reveals.forEach(r => observer.observe(r));
-
-    // Also trigger any already-visible reveals on load
-    window.addEventListener('load', () => {
-      reveals.forEach(r => {
-        const rect = r.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          r.classList.add('visible');
-        }
-      });
-    });
-  </script>
-
-</body>
-</html>
+    window
